@@ -84,6 +84,7 @@ const Menuside: React.FC = () => {
       onOpenChange={onOpenChange}
       mode="inline"
       items={items}
+      style={{border: "none"}}
     />
   );
 };

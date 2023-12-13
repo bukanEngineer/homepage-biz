@@ -1,6 +1,6 @@
 // ThemeConfig.tsx
 import React, { ReactNode } from 'react';
-import { ConfigProvider } from 'antd';
+import { ConfigProvider, theme } from 'antd';
 
 interface ThemeConfigProps {
   children: ReactNode;
@@ -11,12 +11,20 @@ const ThemeConfig: React.FC<ThemeConfigProps> = ({ children }) => (
     theme={{
       token: {
         // Seed Token
-        colorPrimary: '#00b96b',
-        borderRadius: 2,
-
-        // Alias Token
-        // colorBgContainer: '#f6ffed',
+        colorPrimary: '#0C45E1',
+        borderRadius: 8,
+        fontFamily: 'Lato',   
+      
       },
+
+      components: {
+        Button: {
+          algorithm: true,
+          colorBgContainer: '#E2E9FB',
+        },
+      }
+
+      
     }}
   >
     {children}
