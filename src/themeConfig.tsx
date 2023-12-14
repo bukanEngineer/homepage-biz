@@ -1,6 +1,6 @@
 // ThemeConfig.tsx
 import React, { ReactNode } from 'react';
-import { ConfigProvider, theme } from 'antd';
+import { ConfigProvider } from 'antd';
 
 interface ThemeConfigProps {
   children: ReactNode;

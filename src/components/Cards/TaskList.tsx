@@ -18,7 +18,7 @@ const TaskList: React.FC = () => (
     <List
       itemLayout="horizontal"
       dataSource={data}
-      renderItem={(item, index) => (
+      renderItem={(item) => (
         <List.Item actions={[<a key="list-loadmore-edit">Deposit</a>]}>
           <List.Item.Meta
             title={item.title}

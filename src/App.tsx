@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Layout, theme, Menu, Row, Col, Space, Flex } from "antd";
+import { Layout, Row, Col, Space } from "antd";
 import Menuside from "./components/MenuSide/MenuSide";
 import MenuTop from "./components/Navbar/MenuTop";
-import { Button, Divider, Tooltip } from "antd";
-import { Avatar, Card, Skeleton, Switch } from "antd";
+import { Button, Divider, Tooltip, Card } from "antd";
 import ThemeConfig from "./themeConfig";
 import { StyledLogoContainer } from "./components/MenuSide/StyledLogo";
 import TaskList from "./components/Cards/TaskList";
@@ -14,15 +13,7 @@ import AccountCards from "./components/Cards/AccountCards";
 const { Content, Footer, Sider, Header } = Layout;
 
 const App: React.FC = () => {
-  const [loading, setLoading] = useState(true);
-
-  const onChange = (checked: boolean) => {
-    setLoading(!checked);
-  };
-
-  const {
-    token: { colorPrimary },
-  } = theme.useToken();
+  const [loading] = useState(true);
 
   const sidebarWidth = 256;
   return (
