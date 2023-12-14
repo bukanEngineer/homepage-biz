@@ -8,15 +8,10 @@ import ThemeConfig from "./themeConfig";
 import { StyledLogoContainer } from "./components/MenuSide/StyledLogo";
 import TaskList from "./components/Cards/TaskList";
 import QuickAccess from "./components/Cards/QuickAccess";
-import {
-  QuestionCircleOutlined,
-  EditOutlined,
-  EllipsisOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
+import { QuestionCircleOutlined } from "@ant-design/icons";
+import AccountCards from "./components/Cards/AccountCards";
 
 const { Content, Footer, Sider, Header } = Layout;
-const { Meta } = Card;
 
 const App: React.FC = () => {
   const [loading, setLoading] = useState(true);
@@ -72,7 +67,11 @@ const App: React.FC = () => {
 
             <div>
               <Tooltip title="Ask fazzbiz team">
-                <Button shape="circle" icon={<EditOutlined />} style={{background: 'white'}} />
+                <Button
+                  shape="circle"
+                  icon={<QuestionCircleOutlined />}
+                  style={{ background: "white" }}
+                />
               </Tooltip>
             </div>
 
@@ -94,21 +93,14 @@ const App: React.FC = () => {
                 <img
                   src="src/components/marketingBanner.png"
                   alt="marketing banner"
+                  style={{ width: "100%" }}
                 />
               </Col>
             </Row>
 
             <Row gutter={[16, 16]}>
               <Col span={14}>
-                <Card style={{ width: "100%", height: "100%" }}>
-                  <Meta
-                    avatar={
-                      <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
-                    }
-                    title="Card title"
-                    description="This is the description"
-                  />
-                </Card>
+                <AccountCards/>
               </Col>
 
               <Col span={10}>
@@ -117,83 +109,13 @@ const App: React.FC = () => {
                   size="middle"
                   style={{ display: "flex" }}
                 >
-                  <Card title="Quick Access" style={{ width: "100%" }}>
-                    <Flex gap="middle" style={{ justifyContent: "flex-start" }}>
-                       <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:8}}>
-                        <Button
-                          size="large"
-                          shape="circle"
-                          icon={<QuestionCircleOutlined style={{ color: '#0C45E1' }}/>}
-                          style={{border: '0'}}
-                        />
-                        <p>Deposit</p>
-                      </div>
+                  <QuickAccess />
+                  <TaskList />
 
-                       <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:8}}>
-                        <Button
-                          size="large"
-                          shape="circle"
-                          icon={<QuestionCircleOutlined style={{ color: '#0C45E1' }}/>}
-                          style={{border: '0'}}
-                        />
-                        <p>Withdrawal</p>
-                      </div>
-
-                       <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:8}}>
-                        <Button
-                          size="large"
-                          shape="circle"
-                          icon={<QuestionCircleOutlined style={{ color: '#0C45E1' }}/>}
-                          style={{border: '0'}}
-                        />
-                        <p>Payout Form</p>
-                      </div>
-                    </Flex>
-
-                    <Flex gap="middle" style={{ justifyContent: "flex-start" }}>
-                       <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:8}}>
-                        <Button
-                          size="large"
-                          shape="circle"
-                          icon={<QuestionCircleOutlined style={{ color: '#0C45E1' }}/>}
-                          style={{border: '0'}}
-                        />
-                        <p>Payment Link</p>
-                      </div>
-
-                      <div style={{flexDirection: 'column', display: 'flex', justifyContent: 'center', alignItems: 'center', gap:8}}>
-                        <Button
-                          size="large"
-                          shape="circle"
-                          icon={<QuestionCircleOutlined style={{ color: '#0C45E1' }}/>}
-                          style={{border: '0'}}
-                        />
-                        <p>Team Management</p>
-                      </div>
-                    </Flex>
-                  </Card>
-
-                  {/* <QuickAccess/> */}
-                  <TaskList/>
-
-                  <Card style={{ width: "100%" }} loading={loading}>
-                    <Meta
-                      avatar={
-                        <Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel&key=1" />
-                      }
-                      title="Card title"
-                      description="This is the description"
-                    />
-                  </Card>
-
+                  <Card style={{ width: "100%" }} loading={loading}></Card>
                 </Space>
               </Col>
             </Row>
-
-
-
-
-
           </Content>
           <Footer
             style={{
@@ -201,6 +123,7 @@ const App: React.FC = () => {
               marginInline: "24px",
               marginBottom: "24px",
               fontWeight: 400,
+              color: "#757575"
             }}
           >
             Consumer advisory - XFERS PTE. LTD. is the holder of a Major Payment
@@ -217,15 +140,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-{
-  /* {
-              // indicates very long content
-              Array.from({ length: 50 }, (_, index) => (
-                <React.Fragment key={index}>
-                  {index % 20 === 0 && index ? 'more' : '...'}
-                  <br />
-                </React.Fragment>
-              ))
-            } */
-}
