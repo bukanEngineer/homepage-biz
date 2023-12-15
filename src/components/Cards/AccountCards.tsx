@@ -24,21 +24,23 @@ const AccountCards: React.FC = () => {
     },
   ];
 
-  const earnAccountData  = [
+  const earnAccountData = [
     {
       link: "#",
       title: "IDR Account",
-      description: "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
+      description:
+        "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
     },
   ];
 
-  const flexPayData  = [
+  const flexPayData = [
     {
       link: "#",
       title: "IDR Account",
-      description: "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
-      buttonText: "Explore Sekarang", 
-      buttonLink: "#"
+      description:
+        "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
+      buttonText: "Explore Sekarang",
+      buttonLink: "#",
     },
   ];
 
@@ -64,7 +66,7 @@ const AccountCards: React.FC = () => {
       />
 
       <div style={{ gap: "16px", display: "flex", flexDirection: "column" }}>
-      {earnAccountData.map((card, index) => (
+        {earnAccountData.map((card, index) => (
           <CustomCard key={index} {...card} />
         ))}
       </div>
@@ -77,16 +79,13 @@ const AccountCards: React.FC = () => {
         style={{ paddingBottom: "16px" }}
       />
 
-      <div
-        style={{ gap: "16px", display: "flex", flexDirection: "column" }}
-      >
-
-{cashAccountData.map((card, index) => (
+      <div style={{ gap: "16px", display: "flex", flexDirection: "column" }}>
+        {cashAccountData.map((card, index) => (
           <CustomCard key={index} {...card} />
         ))}
 
-{flexPayData.map((card, index) => (
-          <CustomCard key={index} {...card} showChevron={false}/>
+        {flexPayData.map((card, index) => (
+          <CustomCard key={index} {...card} showChevron={false} />
         ))}
       </div>
     </Card>
@@ -94,5 +93,3 @@ const AccountCards: React.FC = () => {
 };
 
 export default AccountCards;
-
-
