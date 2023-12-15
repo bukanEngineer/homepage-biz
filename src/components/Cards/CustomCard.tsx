@@ -61,10 +61,10 @@ const CustomCard: React.FC<CustomCardProps> = ({
           
         </div>
 
-        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+        <div className="rightsection" style={{ display: "flex", gap: "8px", alignItems: "center" }}>
           {totalMoney && <span style={{ fontWeight: 700, fontSize: 16 }}>{totalMoney}</span>}
           {buttonText && buttonLink && (
-            <Button type="link" href={buttonLink} style={{width: "100%"}}>
+            <Button type="link" href={buttonLink} style={{padding: 0, alignItems: "center", display: "flex"}}>
               {buttonText}
             </Button>
           )}

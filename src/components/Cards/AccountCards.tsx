@@ -11,6 +11,7 @@ const AccountSection: React.FC<{ title: string; description: string; data: any[]
   isLast,
 }) => (
   <>
+  
     <Meta title={title} description={description} style={{ paddingBottom: "16px" }} />
 
     <div style={{ gap: "16px", display: "flex", flexDirection: "column" }}>
@@ -27,7 +28,7 @@ const AccountCards: React.FC = () => {
   const cashAccountData = [
     {
       link: "https://www.youtube.com/",
-      avatarSrc: "https://www.worldometers.info/img/flags/my-flag.gif",
+      avatarSrc: "https://www.worldometers.info/img/flags/id-flag.gif",
       title: "IDR Account",
       bank: "Bank Sahabat Sampoerna (BSS)",
       accountType: "Virtual Account",
@@ -48,22 +49,26 @@ const AccountCards: React.FC = () => {
       link: "#",
       title: "IDR Account",
       description: "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
+      showChevron: false,
+      buttonText: "Open Earn Deposit",
+      buttonLink: "#",
+      
     },
   ];
 
   const flexPayData = [
     {
       link: "#",
-      title: "IDR Account",
-      description: "Grow your money with deposit from IDR 10.000.000 up to IDR 100.000.000",
-      buttonText: "Explore Sekarang",
+      title: "Flexpay",
+      description: "Take control of your credit with ease! and track your repayment progress in one convenient place.",
+      buttonText: "Explore Now",
       buttonLink: "#",
     },
   ];
 
   const sections = [
     { title: "Cash Account", description: "For accepting or sending payment", data: cashAccountData },
-    { title: "Earn Account", description: "Access and manage your savings account here", data: earnAccountData },
+    { title: "Earn Account", description: "Access and manage your savings account here", data: earnAccountData},
     {
       title: "Loan Account",
       description: "Access and manage your Loan here",

@@ -1,4 +1,5 @@
 import { Card, Button, Flex } from "antd";
+import React, { MouseEvent } from "react";
 import {
   ApiOutlined,
   TeamOutlined,
@@ -12,6 +13,14 @@ interface QuickAccessButtonProps {
   iconColor: string;
   label: string;
 }
+
+const handleMouseOver = (e: MouseEvent<HTMLDivElement>) => {
+  e.currentTarget.style.boxShadow = "0px 2px 4px 0px rgba(51, 51, 51, 0.16)";
+};
+
+const handleMouseOut = (e: MouseEvent<HTMLDivElement>) => {
+  e.currentTarget.style.boxShadow = "none";
+};
 
 const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
   icon,
@@ -29,10 +38,11 @@ const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
     }}
   >
     <Button
-      size="large"
       shape="circle"
       icon={icon}
-      style={{ border: "0", color: iconColor }}
+      style={{ border: "0", color: iconColor, width: "48px", height: "48px"}}
+      onMouseOver={handleMouseOver}
+      onMouseOut={handleMouseOut}
     />
     <p>{label}</p>
   </div>
