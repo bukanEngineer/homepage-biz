@@ -31,7 +31,7 @@ const App: React.FC = () => {
           }}
         >
           <StyledLogoContainer>
-            <img src="public/logo.png" alt="logo" />
+            <img src="logo.png" alt="logo" />
           </StyledLogoContainer>
           <Menuside />
         </Sider>
@@ -82,7 +82,7 @@ const App: React.FC = () => {
             <Row style={{ paddingBottom: 24 }}>
               <Col span={24}>
                 <img
-                  src="public/marketingBanner.png"
+                  src="marketingBanner.png"
                   alt="marketing banner"
                   style={{ width: "100%" }}
                 />
