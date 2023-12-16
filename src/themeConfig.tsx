@@ -1,45 +1,24 @@
-// ThemeConfig.tsx
-import React, { ReactNode } from 'react';
-import { ConfigProvider } from 'antd';
+const configProviderSettings = {
+  theme: {
+    token: {
+      colorPrimary: '#0C45E1',
+      fontFamily: 'Lato', 
+      colorTextBase: '#121212',
+      colorTextSecondary: '#757575'
+    },
 
-interface ThemeConfigProps {
-  children: ReactNode;
-}
-
-const ThemeConfig: React.FC<ThemeConfigProps> = ({ children }) => (
-  <ConfigProvider
-    theme={{
-      token: {
-        // Seed Token
-        colorPrimary: '#0C45E1',
-        borderRadius: 8,
-        fontFamily: 'Lato',   
-      
+    components: {
+      Button: {
+        colorBgContainer: '#E2E9FB',
+        // algorithm: true, // Enable algorithm
       },
 
-      components: {
-        Button: {
-          algorithm: true,
-          colorBgContainer: '#E2E9FB',
-        },
+      Layout: {
+        footerPadding: 24,
+        colorText: '#757575',
       }
+    },
+  },
+};
 
-      
-    }}
-  >
-    {children}
-  </ConfigProvider>
-);
-
-export default ThemeConfig;
-
-// components: {
-//     Button: {
-//       colorPrimary: '#00b96b',
-//       algorithm: true, // Enable algorithm
-//     },
-//     Input: {
-//       colorPrimary: '#eb2f96',
-//       algorithm: true, // Enable algorithm
-//     },
-//   },
+export default configProviderSettings;

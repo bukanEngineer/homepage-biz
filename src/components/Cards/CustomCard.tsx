@@ -36,7 +36,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
   };
 
   return (
-    <a href={link} style={{ textDecoration: "none", color: "inherit" }}>
+    <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
       <div
         style={{
           padding: "12px 16px",

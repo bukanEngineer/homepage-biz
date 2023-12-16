@@ -10,8 +10,8 @@ import {
 
 interface QuickAccessButtonProps {
   icon: React.ReactNode;
-  iconColor: string;
   label: string;
+  iconcolor?: string;
 }
 
 const handleMouseOver = (e: MouseEvent<HTMLDivElement>) => {
@@ -24,8 +24,8 @@ const handleMouseOut = (e: MouseEvent<HTMLDivElement>) => {
 
 const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
   icon,
-  iconColor,
   label,
+  iconcolor = "#0C45E1",
 }) => (
   <div
     style={{
@@ -40,7 +40,7 @@ const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
     <Button
       shape="circle"
       icon={icon}
-      style={{ border: "0", color: iconColor, width: "48px", height: "48px"}}
+      style={{ border: "0", width: "48px", height: "48px", color: iconcolor }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     />
@@ -50,15 +50,11 @@ const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
 
 const QuickAccess: React.FC = () => {
   const buttonsData: QuickAccessButtonProps[] = [
-    { label: "Deposit", icon: <ApiOutlined />, iconColor: "#0C45E1" },
-    { label: "Withdrawal", icon: <AlertOutlined />, iconColor: "#0C45E1" },
-    { label: "Payout Form", icon: <SendOutlined />, iconColor: "#0C45E1" },
-    {
-      label: "Payment Link",
-      icon: <PullRequestOutlined />,
-      iconColor: "#0C45E1",
-    },
-    { label: "Team Management", icon: <TeamOutlined />, iconColor: "#0C45E1" },
+    { label: "Deposit", icon: <ApiOutlined /> },
+    { label: "Withdrawal", icon: <AlertOutlined /> },
+    { label: "Payout Form", icon: <SendOutlined /> },
+    { label: "Payment Link", icon: <PullRequestOutlined /> },
+    { label: "Team Management", icon: <TeamOutlined /> },
   ];
 
   const rowButtons = buttonsData.slice(0, 3);
