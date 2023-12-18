@@ -1,8 +1,7 @@
 import { DownOutlined, SmileOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Dropdown, Avatar, Flex, Button, Divider, Tooltip } from "antd";
-import { UserOutlined, QuestionCircleOutlined } from "@ant-design/icons";
-import { Header } from "antd/lib/layout/layout";
+import { Dropdown, Avatar, Flex} from "antd";
+import { UserOutlined} from "@ant-design/icons";
 import configProviderSettings from "../../themeConfig";
 import { useState } from "react";
 
@@ -55,7 +54,7 @@ const items: MenuProps["items"] = [
   },
 ];
 
-const MenuTop: React.FC = () => {
+const TopRight: React.FC = () => {
   const [userData] = useState({
     name: "Jennie Blackpink",
     role: "Owner",
@@ -99,40 +98,4 @@ const MenuTop: React.FC = () => {
   );
 };
 
-const Navbar: React.FC = () => (
-  <Header
-    style={{
-      paddingInline: 24,
-      justifyContent: "center",
-      alignItems: "center",
-      display: "flex",
-      height: "80px",
-      position: "sticky",
-      width: "100%",
-      top: 0,
-      backgroundColor: "white",
-      borderBottom: "1px solid #E0E0E0",
-      zIndex: 1,
-    }}
-  >
-    <span style={{ flexGrow: 1, fontSize: "24px", fontWeight: "bold" }}>
-      Welcome back, Jennie!
-    </span>
-
-    <Flex>
-      <Tooltip title="Ask fazzbiz team">
-        <Button
-          shape="circle"
-          icon={<QuestionCircleOutlined />}
-          style={{ background: "white" }}
-        />
-      </Tooltip>
-    </Flex>
-
-    <Divider type="vertical" style={{ borderInline: "1px solid #E0E0E0" }} />
-
-    <MenuTop />
-  </Header>
-);
-
-export default Navbar;
+export default TopRight;

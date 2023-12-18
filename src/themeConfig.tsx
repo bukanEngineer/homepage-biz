@@ -15,7 +15,9 @@ const configProviderSettings = {
 
       Layout: {
         footerPadding: 24,
-        colorText: '#757575',
+        headerHeight: 80,
+        headerBg: 'white',
+        headerPadding: 24
       }
     },
   },

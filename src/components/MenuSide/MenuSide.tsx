@@ -14,14 +14,17 @@ import {
 import type { MenuProps } from "antd";
 import { Menu } from "antd";
 
-type MenuItem = Required<MenuProps>["items"][number];
+
+
+type MenuItem = Required<MenuProps>['items'][number];
+
 
 function getItem(
   label: React.ReactNode,
   key: React.Key,
   icon?: React.ReactNode,
   children?: MenuItem[],
-  type?: "group"
+  type?: 'group'| 'item',
 ): MenuItem {
   return {
     key,
@@ -32,62 +35,41 @@ function getItem(
   } as MenuItem;
 }
 
-const items: MenuProps["items"] = [
-  getItem("Home", "1", <HomeOutlined />),
-
-  getItem("Account", "sub1", <BankOutlined />, [
-    getItem("Option 2", "2"),
-    getItem("Option 3", "3"),
+const items: MenuItem[] = [
+  getItem('Home', '1', <HomeOutlined />),
+  getItem('Account', '2', <BankOutlined />, [
+    getItem('Option', 'sub2-1'),
+    getItem('Option', 'sub2-2'),
   ]),
-
-  getItem("Pay", "sub2", <SendOutlined />, [
-    getItem("Option 3", "3"),
-    getItem("Option 4", "4"),
+  getItem('Pay', '3', <SendOutlined />, [
+    getItem('Option', 'sub3-1'),
+    getItem('Option', 'sub3-2'),
   ]),
-
-  getItem("Receive", "sub3", <SettingOutlined />, [
-    getItem("Option 5", "5"),
-    getItem("Option 6", "6"),
+  getItem('Receive', '4', <ContainerOutlined />, [
+    getItem('Option', 'sub4-1'),
+    getItem('Option', 'sub4-2'),
   ]),
-
-  getItem("Loan", "sub4", <BuildOutlined />, [
-    getItem("Option 7", "7"),
-    getItem("Option 8", "8"),
+  getItem('Loan', '5', <BuildOutlined />, [
+    getItem('Option', 'sub5-1'),
+    getItem('Option', 'sub6-2'),
   ]),
-
-  getItem("Cards", "sub5", <ContainerOutlined />, [
-    getItem("Option 9", "9"),
-    getItem("Option 10", "10"),
-  ]),
-
-  getItem("Developer Tools", "sub6", <ExperimentOutlined />),
-  getItem("Integrations", "sub7", <LinkOutlined />),
+  getItem('Developer Tools', '6', <ExperimentOutlined />),
+  getItem('Integrations', '7', <LinkOutlined />),
 
   { type: "divider" },
+  getItem('Setting', '8', <SettingOutlined />),
+  getItem('FAQ', '9', <QuestionOutlined />),
+  getItem('Request a feature', '10', <CodeOutlined />),
 
-  getItem("Setting", "sub8", <SettingOutlined />),
-  getItem("FAQ", "sub9", <QuestionOutlined />),
-  getItem("Request a feature", "sub10", <CodeOutlined />),
 ];
 
 // submenu keys of first level
-const rootSubmenuKeys = [
-  "sub1",
-  "sub2",
-  "sub3",
-  "sub4",
-  "sub5",
-  "sub6",
-  "sub7",
-  "sub8",
-  "sub9",
-  "sub10",
-];
+const rootSubmenuKeys = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
 
 const Menuside: React.FC = () => {
-  const [openKeys, setOpenKeys] = useState(["1"]);
+  const [openKeys, setOpenKeys] = useState(['1']);
 
-  const onOpenChange: MenuProps["onOpenChange"] = (keys) => {
+  const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
     const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
     if (latestOpenKey && rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
       setOpenKeys(keys);
@@ -95,13 +77,15 @@ const Menuside: React.FC = () => {
       setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
     }
   };
+
   return (
     <Menu
+      mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-      mode="inline"
+      style={{ width: 256, border: 0}}
       items={items}
-      style={{ border: "none" }}
+      defaultSelectedKeys={['1']}
     />
   );
 };

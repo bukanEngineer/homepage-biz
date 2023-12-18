@@ -2,6 +2,8 @@ import React, { MouseEvent } from "react";
 import { Avatar, Button } from "antd";
 import { RxChevronRight } from "react-icons/rx";
 
+// Card inside Dashboard
+
 interface CustomCardProps {
   link?: string;
   avatarSrc?: string;
