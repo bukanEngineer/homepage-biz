@@ -1,7 +1,7 @@
 // App.tsx
 import BaseLayout from "./layout/BaseLayout";
 import { ConfigProvider } from "antd";
-import configProviderSettings from "./themeConfig.tsx";
+import configProviderSettings from "./style/themeConfig.tsx";
 
 
 

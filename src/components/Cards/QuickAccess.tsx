@@ -7,7 +7,7 @@ import {
   PullRequestOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
-import configProviderSettings from "../../themeConfig";
+import configProviderSettings from "../../style/themeConfig";
 import styled from "@emotion/styled";
 
 const { theme } = configProviderSettings;

@@ -3,7 +3,7 @@ import Menuside from "../components/MenuSide/MenuSide";
 import MenuTop from "../components/Navbar/TopRight";
 import styled from "@emotion/styled";
 import TopLeft from "../components/Navbar/TopLeft";
-import configProviderSettings from "../themeConfig";
+import configProviderSettings from "../style/themeConfig";
 import Homepage from "../page/Homepage";
 
 

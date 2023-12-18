@@ -2,7 +2,7 @@ import { DownOutlined, SmileOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import { Dropdown, Avatar, Flex} from "antd";
 import { UserOutlined} from "@ant-design/icons";
-import configProviderSettings from "../../themeConfig";
+import configProviderSettings from "../../style/themeConfig";
 import { useState } from "react";
 
 const { theme } = configProviderSettings;
