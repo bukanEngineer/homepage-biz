@@ -22,14 +22,14 @@ const { Header, Content, Footer, Sider } = Layout;
 const BaseLayout = () => {
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
-      <Sider theme="light" width={256}>
+      <Sider theme="light" width={256} style={{position: "fixed", minHeight: "100vh" }}>
         <StyledLogoContainer>
           <img src="logo.png" alt="company logo" />
         </StyledLogoContainer>
         <Menuside />
       </Sider>
-      <Layout>
-        <Header style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <Layout style={{marginLeft: 256}}>
+        <Header style={{ display: "flex", alignItems: "center", gap: 8, position: 'sticky', zIndex: 1, top: 0}}>
           <TopLeft />
           <MenuTop />
         </Header>
