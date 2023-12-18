@@ -4,9 +4,12 @@ import { Card, List } from "antd";
 const data = [
   {
     title: "Top Up Your SGD Cash Account",
+    description: "Ant Design, a design language for background applications, is refined by Ant UED Team"
   },
+
   {
     title: "Top Up Your xxx Cash Account",
+    description: "Low balance may cause disruption to your payouts"
   },
 ];
 
@@ -22,7 +25,7 @@ const TaskList: React.FC = () => (
         <List.Item actions={[<a key="list-loadmore-edit">Deposit</a>]}>
           <List.Item.Meta
             title={item.title}
-            description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+            description= {item.description}
           />
         </List.Item>
       )}

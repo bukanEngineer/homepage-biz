@@ -9,6 +9,7 @@ import Homepage from "../page/Homepage";
 
 const { theme } = configProviderSettings;
 
+
 export const StyledLogoContainer = styled.div`
   height: 100px;
   display: flex;

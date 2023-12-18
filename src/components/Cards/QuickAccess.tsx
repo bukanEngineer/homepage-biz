@@ -7,6 +7,19 @@ import {
   PullRequestOutlined,
   AlertOutlined,
 } from "@ant-design/icons";
+import configProviderSettings from "../../themeConfig";
+import styled from "@emotion/styled";
+
+const { theme } = configProviderSettings;
+
+const QuickAccesButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: 124px;
+`;
 
 interface QuickAccessButtonProps {
   icon: React.ReactNode;
@@ -25,27 +38,18 @@ const handleMouseOut = (e: MouseEvent<HTMLDivElement>) => {
 const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
   icon,
   label,
-  iconcolor = "#0C45E1",
+  iconcolor,
 }) => (
-  <div
-    style={{
-      flexDirection: "column",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: 8,
-      width: "124px",
-    }}
-  >
+  <QuickAccesButtonContainer>
     <Button
       shape="circle"
       icon={icon}
-      style={{ border: "0", width: "48px", height: "48px", color: iconcolor }}
+      style={{ border: "0", width: "48px", height: "48px", color: iconcolor || theme.token.colorPrimary,  }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     />
     <p>{label}</p>
-  </div>
+  </QuickAccesButtonContainer>
 );
 
 const QuickAccess: React.FC = () => {
@@ -56,6 +60,8 @@ const QuickAccess: React.FC = () => {
     { label: "Payment Link", icon: <PullRequestOutlined /> },
     { label: "Team Management", icon: <TeamOutlined /> },
   ];
+
+  // Define Button Row in UI
 
   const rowButtons = buttonsData.slice(0, 3);
   const secondRowButtons = buttonsData.slice(3, 5);

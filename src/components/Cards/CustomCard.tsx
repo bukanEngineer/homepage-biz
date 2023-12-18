@@ -1,6 +1,7 @@
 import React, { MouseEvent } from "react";
 import { Avatar, Button } from "antd";
 import { RxChevronRight } from "react-icons/rx";
+import styled from "@emotion/styled";
 
 // Card inside Dashboard
 
@@ -37,42 +38,62 @@ const CustomCard: React.FC<CustomCardProps> = ({
     e.currentTarget.style.boxShadow = "none";
   };
 
+  const CardContainer = styled.div`
+    padding: 12px 16px;
+    background-color: #f6f7f9;
+    display: flex;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+    align-items: center;
+    gap: 12px;
+  `;
+
+  const RightSection = styled.div`
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  `;
+
+  const LeftSection = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  `;
+
   return (
-    <a href={link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", color: "inherit" }}>
-      <div
-        style={{
-          padding: "12px 16px",
-          backgroundColor: "#F6F7F9",
-          display: "flex",
-          borderRadius: 8,
-          cursor: "pointer",
-          transition: "box-shadow 0.3s",
-          alignItems: "center",
-          gap: 12,
-        }}
-        onMouseOver={handleMouseOver}
-        onMouseOut={handleMouseOut}
-      >
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      <CardContainer onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
         {avatarSrc && <Avatar src={avatarSrc} />}
 
-        <div style={{ display: "flex", flexDirection: "column", flexGrow: 1 }}>
+        <LeftSection>
           {title && <span style={{ fontWeight: 700 }}>{title}</span>}
           {bank && <span>{bank}</span>}
           {description && <span>{description}</span>}
           {accountType && <span>{accountType}</span>}
-          
-        </div>
+        </LeftSection>
 
-        <div className="rightsection" style={{ display: "flex", gap: "8px", alignItems: "center" }}>
-          {totalMoney && <span style={{ fontWeight: 700, fontSize: 16 }}>{totalMoney}</span>}
+        <RightSection>
+          {totalMoney && (
+            <span style={{ fontWeight: 700, fontSize: 16 }}>{totalMoney}</span>
+          )}
           {buttonText && buttonLink && (
-            <Button type="link" href={buttonLink} style={{padding: 0, alignItems: "center", display: "flex"}}>
+            <Button
+              type="link"
+              href={buttonLink}
+              style={{ padding: 0, alignItems: "center", display: "flex" }}
+            >
               {buttonText}
             </Button>
           )}
           {showChevron && <RxChevronRight style={{ fontSize: 20 }} />}
-        </div>
-      </div>
+        </RightSection>
+      </CardContainer>
     </a>
   );
 };
