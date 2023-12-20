@@ -1,4 +1,4 @@
-import { Card, Button, Flex } from "antd";
+import { Card, Button, Flex, Row, Col } from "antd";
 import React, { MouseEvent } from "react";
 import {
   ApiOutlined,
@@ -12,14 +12,12 @@ import styled from "@emotion/styled";
 
 const { theme } = configProviderSettings;
 
-const QuickAccesButtonContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 124px;
-`;
+// const QuickAccesButtonContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   width: 124px;
+// `;
 
 interface QuickAccessButtonProps {
   icon: React.ReactNode;
@@ -40,16 +38,21 @@ const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
   label,
   iconcolor,
 }) => (
-  <QuickAccesButtonContainer>
+  <Flex vertical align="center" style={{ width: 124 }}>
     <Button
       shape="circle"
       icon={icon}
-      style={{ border: "0", width: "48px", height: "48px", color: iconcolor || theme.token.colorPrimary,  }}
+      style={{
+        border: "0",
+        width: "48px",
+        height: "48px",
+        color: iconcolor || theme.token.colorPrimary,
+      }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     />
     <p>{label}</p>
-  </QuickAccesButtonContainer>
+  </Flex>
 );
 
 const QuickAccess: React.FC = () => {
@@ -63,25 +66,14 @@ const QuickAccess: React.FC = () => {
 
   // Define Button Row in UI
 
-  const rowButtons = buttonsData.slice(0, 3);
-  const secondRowButtons = buttonsData.slice(3, 5);
+  // const rowButtons = buttonsData.slice(0, 2);
+  // const secondRowButtons = buttonsData.slice(2, 4);
+  // // const thirdRowButtons = buttonsData.slice(4, 5);
 
   return (
     <Card title="Quick Access" style={{ width: "100%" }}>
-      <Flex
-        style={{
-          justifyContent: "flex-start",
-          paddingBottom: "16px",
-          gap: "4px",
-        }}
-      >
-        {rowButtons.map((button, index) => (
-          <QuickAccessButton key={index} {...button} />
-        ))}
-      </Flex>
-
-      <Flex style={{ justifyContent: "flex-start", gap: "4px" }}>
-        {secondRowButtons.map((button, index) => (
+      <Flex wrap="wrap" gap={12}>
+        {buttonsData.map((button, index) => (
           <QuickAccessButton key={index} {...button} />
         ))}
       </Flex>
@@ -90,3 +82,11 @@ const QuickAccess: React.FC = () => {
 };
 
 export default QuickAccess;
+
+{
+  /* <Flex wrap="wrap" gap={16}>
+{buttonsData.map((button, index) => (
+  <QuickAccessButton key={index} {...button} />
+))}
+</Flex> */
+}

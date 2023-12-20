@@ -2,12 +2,39 @@
 import BaseLayout from "./layout/BaseLayout";
 import { ConfigProvider } from "antd";
 import configProviderSettings from "./style/themeConfig.tsx";
+import About from "./page/About.tsx";
+import Account from "./page/Account.tsx";
+import Homepage from "./page/Homepage.tsx";
 
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <BaseLayout />,
+    children: [
+      {
+        path: "/Homepage",
+        element: <Homepage />,
+        index: true,
+      },
+
+      {
+        path: "/About",
+        element: <About />,
+      },
+
+      {
+        path: "/Account",
+        element: <Account />,
+      },
+    ],
+  },
+]);
 
 const App = () => (
   <ConfigProvider theme={configProviderSettings.theme}>
-      <BaseLayout />
+    <RouterProvider router={router} />
   </ConfigProvider>
 );
 

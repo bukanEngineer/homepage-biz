@@ -18,12 +18,13 @@ const Homepage = () => {
         </Col>
       </Row>
 
+      {/* xs={24} sm={16} md={16} lg={14} xl={10} */}
       <Row gutter={[16, 16]}>
-        <Col span={14}>
+        <Col xxl={14} xl={14} lg={24}>
           <AccountCards />
         </Col>
 
-        <Col span={10}>
+        <Col xxl={10} xl={10} lg={24}>
           <Space direction="vertical" size="middle" style={{ display: "flex" }}>
             <QuickAccess />
             <TaskList />

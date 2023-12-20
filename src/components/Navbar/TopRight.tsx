@@ -1,7 +1,7 @@
 import { DownOutlined, SmileOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import { Dropdown, Avatar, Flex} from "antd";
-import { UserOutlined} from "@ant-design/icons";
+import { Dropdown, Avatar, Flex } from "antd";
+import { UserOutlined } from "@ant-design/icons";
 import configProviderSettings from "../../style/themeConfig";
 import { useState } from "react";
 
@@ -71,7 +71,7 @@ const TopRight: React.FC = () => {
         <Flex style={{ alignItems: "center", gap: 12 }}>
           <Avatar icon={<UserOutlined />} />
           <Flex vertical style={{ lineHeight: "normal", gap: 4 }}>
-            <span
+            <p
               style={{
                 fontSize: 12,
                 fontWeight: 700,
@@ -79,17 +79,13 @@ const TopRight: React.FC = () => {
               }}
             >
               {userData.name}
-            </span>
-            <span
-              style={{ fontSize: 12, color: theme.token.colorTextSecondary }}
-            >
-               {companyData.name}
-            </span>
-            <span
-              style={{ fontSize: 12, color: theme.token.colorTextSecondary }}
-            >
+            </p>
+            <p style={{ fontSize: 12, color: theme.token.colorTextSecondary }}>
+              {companyData.name}
+            </p>
+            <p style={{ fontSize: 12, color: theme.token.colorTextSecondary }}>
               {companyData.location} • {userData.role}
-            </span>
+            </p>
           </Flex>
           <DownOutlined style={{ color: theme.token.colorTextBase }} />
         </Flex>

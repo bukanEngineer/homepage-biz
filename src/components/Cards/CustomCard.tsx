@@ -39,20 +39,22 @@ const CustomCard: React.FC<CustomCardProps> = ({
   };
 
   const CardContainer = styled.div`
-    padding: 12px 16px;
+    padding: 0.75rem 1rem;
     background-color: #f6f7f9;
     display: flex;
     border-radius: 8px;
     cursor: pointer;
     transition: box-shadow 0.3s;
     align-items: center;
-    gap: 12px;
+    gap: 0.75rem;
+    overflow: hidden;
   `;
 
   const RightSection = styled.div`
     display: flex;
-    gap: 8px;
+    gap: 0, 5rem;
     align-items: center;
+    flex-direction
   `;
 
   const LeftSection = styled.div`
@@ -69,18 +71,37 @@ const CustomCard: React.FC<CustomCardProps> = ({
       style={{ textDecoration: "none", color: "inherit" }}
     >
       <CardContainer onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-        {avatarSrc && <Avatar src={avatarSrc} />}
+        <div>{avatarSrc && <Avatar src={avatarSrc} />}</div>
 
         <LeftSection>
-          {title && <span style={{ fontWeight: 700 }}>{title}</span>}
-          {bank && <span>{bank}</span>}
-          {description && <span>{description}</span>}
-          {accountType && <span>{accountType}</span>}
+          {title && <p style={{ fontWeight: 700 }}>{title}</p>}
+          {bank && (
+            <p
+              style={{
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+              }}
+            >
+              {bank}
+            </p>
+          )}
+          {description && <p>{description}</p>}
+          {accountType && <p>{accountType}</p>}
         </LeftSection>
 
         <RightSection>
           {totalMoney && (
-            <span style={{ fontWeight: 700, fontSize: 16 }}>{totalMoney}</span>
+            <p
+              style={{
+                fontWeight: 700,
+                fontSize: 16,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
+              }}
+            >
+              {totalMoney}
+            </p>
           )}
           {buttonText && buttonLink && (
             <Button
