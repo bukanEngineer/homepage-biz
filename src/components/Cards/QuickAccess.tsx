@@ -1,4 +1,4 @@
-import { Card, Button, Flex, Row, Col } from "antd";
+import { Card, Button, Flex } from "antd";
 import React, { MouseEvent } from "react";
 import {
   ApiOutlined,
@@ -8,7 +8,6 @@ import {
   AlertOutlined,
 } from "@ant-design/icons";
 import configProviderSettings from "../../style/themeConfig";
-import styled from "@emotion/styled";
 
 const { theme } = configProviderSettings;
 
