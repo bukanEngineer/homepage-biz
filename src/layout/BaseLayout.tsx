@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import TopLeft from "../components/Navbar/TopLeft";
 import configProviderSettings from "../style/themeConfig";
 import { Outlet } from "react-router";
+import { useState } from "react";
 
 const { theme } = configProviderSettings;
 
@@ -19,19 +20,30 @@ export const StyledLogoContainer = styled.div`
 const { Header, Content, Footer, Sider } = Layout;
 
 const BaseLayout = () => {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const handleSiderCollapse = (collapsed: boolean) => {
+    setCollapsed(collapsed);
+  };
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
       <Sider
+        breakpoint="xl"
+        collapsedWidth="0"
+        onBreakpoint={(broken) => {
+          console.log(broken);
+        }}
         theme="light"
         width={256}
         style={{ position: "fixed", minHeight: "100vh" }}
+        onCollapse={handleSiderCollapse}
       >
         <StyledLogoContainer>
           <img src="logo.png" alt="company logo" />
         </StyledLogoContainer>
         <Menuside />
       </Sider>
-      <Layout style={{ marginLeft: 256 }}>
+      <Layout style={{ marginLeft: collapsed ? 0 : 256 }}>
         <Header
           style={{
             display: "flex",
@@ -40,6 +52,7 @@ const BaseLayout = () => {
             position: "sticky",
             zIndex: 1,
             top: 0,
+            overflow: "hidden",
           }}
         >
           <TopLeft />

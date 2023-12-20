@@ -47,7 +47,7 @@ const items: MenuItem[] = [
   // undefined: No children are specified for this menu item, so it's a simple, standalone item.
   // Dont need to use 2 undefined for single menu
 
-  getItem("Home", "Homepage", <HomeOutlined />, undefined, "item", "/Homepage"),
+  getItem("Home", "Homepage", <HomeOutlined />, undefined, "item", "/"),
   getItem("Account", "2", <BankOutlined />, [
     getItem("Option", "sub2-1", undefined, undefined, "item", "/About"),
     getItem("Option", "sub2-2", undefined, undefined, "item", "/Account"),

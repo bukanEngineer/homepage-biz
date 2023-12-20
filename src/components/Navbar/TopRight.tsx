@@ -76,6 +76,9 @@ const TopRight: React.FC = () => {
                 fontSize: 12,
                 fontWeight: 700,
                 color: theme.token.colorTextBase,
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis",
               }}
             >
               {userData.name}

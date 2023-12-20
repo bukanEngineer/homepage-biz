@@ -108,7 +108,7 @@ const AccountSection: React.FC<{
 
 const AccountCards: React.FC = () => {
   return (
-    <Card title="Account" style={{ width: "100%", height: "100%" }}>
+    <Card title="Account">
       {sectionsData.map((section, index) => (
         <AccountSection
           key={index}
