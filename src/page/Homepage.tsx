@@ -3,26 +3,17 @@ import QuickAccess from "../components/Cards/QuickAccess";
 import TaskList from "../components/Cards/TaskList";
 import AccountCards from "../components/Cards/AccountCards";
 import { useState } from "react";
+import MyButton from "../components/Button";
 
 const Homepage = () => {
   const [loading] = useState(true);
   return (
     <Flex vertical>
       <Row>
-        <Col
-          style={{ paddingBottom: 24 }}
-          xxl={24}
-          xl={24}
-          lg={24}
-          sm={0}
-          xs={0}
-        >
-          <img
-            src="marketingBanner.png"
-            alt="marketing banner"
-            style={{ width: "100%" }}
-          />
+        <Col style={{ paddingBottom: 24 }} xxl={24} xl={24} lg={24} sm={0} xs={0}>
+          <img src="marketingBanner.png" alt="marketing banner" style={{ width: "100%" }} />
         </Col>
+        <MyButton colorScheme='critical'>asdasd</MyButton>
       </Row>
 
       <Row gutter={[16, 16]}>
