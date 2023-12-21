@@ -47,7 +47,7 @@ const BaseLayout = () => {
         style={{
           marginLeft: collapsed ? 0 : 256,
           paddingBottom: 24,
-          minWidth: "100vh",
+          minWidth: 328,
         }}
       >
         <Header

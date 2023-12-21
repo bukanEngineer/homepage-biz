@@ -44,6 +44,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
     border-radius: 8px;
     cursor: pointer;
     transition: box-shadow 0.3s;
+    overflow: hidden;
   `;
 
   const RightSection = styled.div`
