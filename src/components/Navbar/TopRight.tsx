@@ -78,11 +78,18 @@ const TopRight: React.FC = () => {
                 fontSize: 12,
                 fontWeight: 700,
                 color: theme.token.colorTextBase,
+                whiteSpace: "nowrap",
               }}
             >
               {userData.name}
             </p>
-            <p style={{ fontSize: 12, color: theme.token.colorTextSecondary }}>
+            <p
+              style={{
+                fontSize: 12,
+                color: theme.token.colorTextSecondary,
+                whiteSpace: "nowrap",
+              }}
+            >
               {companyData.name}
             </p>
             <p style={{ fontSize: 12, color: theme.token.colorTextSecondary }}>
