@@ -28,7 +28,7 @@ const BaseLayout = () => {
   return (
     <Layout hasSider style={{ minHeight: "100vh" }}>
       <Sider
-        breakpoint="xl"
+        breakpoint="lg"
         collapsedWidth="0"
         onBreakpoint={(broken) => {
           console.log(broken);
@@ -43,7 +43,7 @@ const BaseLayout = () => {
         </StyledLogoContainer>
         <Menuside />
       </Sider>
-      <Layout style={{ marginLeft: collapsed ? 0 : 256 }}>
+      <Layout style={{ marginLeft: collapsed ? 0 : 256, paddingBottom: 24 }}>
         <Header
           style={{
             display: "flex",
@@ -61,7 +61,9 @@ const BaseLayout = () => {
         <Content style={{ margin: 24 }}>
           <Outlet />
         </Content>
-        <Footer style={{ color: theme.token.colorTextSecondary }}>
+        <Footer
+          style={{ color: theme.token.colorTextSecondary, paddingInline: 24 }}
+        >
           Consumer advisory - XFERS PTE. LTD. is the holder of a Major Payment
           Institution license for e-money issuance under the new Payment
           Services Act. The electronically stored monetary value issued by XFERS
@@ -74,3 +76,12 @@ const BaseLayout = () => {
 };
 
 export default BaseLayout;
+
+// {
+//   xs: '480px',
+//   sm: '576px',
+//   md: '768px',
+//   lg: '992px',
+//   xl: '1200px',
+//   xxl: '1600px',
+// }

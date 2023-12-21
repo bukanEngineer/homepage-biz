@@ -30,13 +30,12 @@ function getItem(
     icon,
     children,
     // Use Link for routing
-    label: (
-      <Link
-        style={{ color: "inherit", textDecoration: "inherit" }}
-        to={path ? path : `/${key}`}
-      >
+    label: path ? (
+      <Link style={{ color: "inherit", textDecoration: "inherit" }} to={path}>
         {label}
       </Link>
+    ) : (
+      <span style={{ color: "inherit" }}>{label}</span>
     ),
     type,
   } as MenuItem;
@@ -62,7 +61,7 @@ const items: MenuItem[] = [
   ]),
   getItem("Loan", "5", <BuildOutlined />, [
     getItem("Option", "sub5-1"),
-    getItem("Option", "sub6-2"),
+    getItem("Option", "sub5-2"),
   ]),
   getItem("Developer Tools", "6", <ExperimentOutlined />),
   getItem("Integrations", "7", <LinkOutlined />),

@@ -8,8 +8,15 @@ const Homepage = () => {
   const [loading] = useState(true);
   return (
     <Flex vertical>
-      <Row style={{ paddingBottom: 24 }}>
-        <Col span={24}>
+      <Row>
+        <Col
+          style={{ paddingBottom: 24 }}
+          xxl={24}
+          xl={24}
+          lg={24}
+          sm={0}
+          xs={0}
+        >
           <img
             src="marketingBanner.png"
             alt="marketing banner"
@@ -18,7 +25,6 @@ const Homepage = () => {
         </Col>
       </Row>
 
-      {/* xs={24} sm={16} md={16} lg={14} xl={10} */}
       <Row gutter={[16, 16]}>
         <Col xxl={14} xl={14} lg={24} sm={24} xs={24}>
           <AccountCards />
@@ -38,3 +44,12 @@ const Homepage = () => {
 };
 
 export default Homepage;
+
+// {
+//   xs: '480px',
+//   sm: '576px',
+//   md: '768px',
+//   lg: '992px',
+//   xl: '1200px',
+//   xxl: '1600px',
+// }

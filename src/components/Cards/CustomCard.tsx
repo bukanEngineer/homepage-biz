@@ -54,7 +54,6 @@ const CustomCard: React.FC<CustomCardProps> = ({
     display: flex;
     gap: 0, 5rem;
     align-items: center;
-    flex-direction
   `;
 
   const LeftSection = styled.div`
@@ -75,16 +74,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
 
         <LeftSection>
           {title && <p style={{ fontWeight: 700 }}>{title}</p>}
-          {bank && (
-            <p
-              style={{
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-              }}
-            >
-              {bank}
-            </p>
-          )}
+          {bank && <p style={{ whiteSpace: "nowrap" }}>{bank}</p>}
           {description && <p>{description}</p>}
           {accountType && <p>{accountType}</p>}
         </LeftSection>
@@ -95,9 +85,6 @@ const CustomCard: React.FC<CustomCardProps> = ({
               style={{
                 fontWeight: 700,
                 fontSize: 16,
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
               }}
             >
               {totalMoney}

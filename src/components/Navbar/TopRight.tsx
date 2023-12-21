@@ -69,16 +69,15 @@ const TopRight: React.FC = () => {
     <Dropdown menu={{ items }} arrow>
       <a onClick={(e) => e.preventDefault()}>
         <Flex style={{ alignItems: "center", gap: 12 }}>
-          <Avatar icon={<UserOutlined />} />
+          <div>
+            <Avatar icon={<UserOutlined />} />
+          </div>
           <Flex vertical style={{ lineHeight: "normal", gap: 4 }}>
             <p
               style={{
                 fontSize: 12,
                 fontWeight: 700,
                 color: theme.token.colorTextBase,
-                whiteSpace: "nowrap",
-                overflow: "hidden",
-                textOverflow: "ellipsis",
               }}
             >
               {userData.name}

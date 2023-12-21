@@ -8,15 +8,21 @@ import {
   AlertOutlined,
 } from "@ant-design/icons";
 import configProviderSettings from "../../style/themeConfig";
+import styled from "@emotion/styled";
 
 const { theme } = configProviderSettings;
 
-// const QuickAccesButtonContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   width: 124px;
-// `;
+// @media (max-width: 475px) {
+//   width: 125px;
+// }
+
+// @media (min-width: 476px) {
+//   width: 118px;
+// }
+
+const StyledFlex = styled(Flex)`
+  width: 110px;
+`;
 
 interface QuickAccessButtonProps {
   icon: React.ReactNode;
@@ -37,21 +43,21 @@ const QuickAccessButton: React.FC<QuickAccessButtonProps> = ({
   label,
   iconcolor,
 }) => (
-  <Flex vertical align="center" style={{ width: 124 }}>
+  <StyledFlex vertical align="center">
     <Button
       shape="circle"
       icon={icon}
       style={{
         border: "0",
-        width: "48px",
-        height: "48px",
+        width: "3rem",
+        height: "3rem",
         color: iconcolor || theme.token.colorPrimary,
       }}
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     />
-    <p>{label}</p>
-  </Flex>
+    <p style={{ whiteSpace: "nowrap" }}>{label}</p>
+  </StyledFlex>
 );
 
 const QuickAccess: React.FC = () => {
@@ -65,8 +71,8 @@ const QuickAccess: React.FC = () => {
 
   // Define Button Row in UI
 
-  // const rowButtons = buttonsData.slice(0, 2);
-  // const secondRowButtons = buttonsData.slice(2, 4);
+  // const rowButtons = buttonsData.slice(0, 3);
+  // const secondRowButtons = buttonsData.slice(3, 5);
   // // const thirdRowButtons = buttonsData.slice(4, 5);
 
   return (
