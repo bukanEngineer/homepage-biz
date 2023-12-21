@@ -43,7 +43,13 @@ const BaseLayout = () => {
         </StyledLogoContainer>
         <Menuside />
       </Sider>
-      <Layout style={{ marginLeft: collapsed ? 0 : 256, paddingBottom: 24 }}>
+      <Layout
+        style={{
+          marginLeft: collapsed ? 0 : 256,
+          paddingBottom: 24,
+          minWidth: "100vh",
+        }}
+      >
         <Header
           style={{
             display: "flex",

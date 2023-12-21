@@ -1,5 +1,5 @@
 import React, { MouseEvent } from "react";
-import { Avatar, Button } from "antd";
+import { Avatar, Button, Flex } from "antd";
 import { RxChevronRight } from "react-icons/rx";
 import styled from "@emotion/styled";
 
@@ -38,28 +38,18 @@ const CustomCard: React.FC<CustomCardProps> = ({
     e.currentTarget.style.boxShadow = "none";
   };
 
-  const CardContainer = styled.div`
+  const StyledCardInside = styled(Flex)`
     padding: 0.75rem 1rem;
     background-color: #f6f7f9;
-    display: flex;
     border-radius: 8px;
     cursor: pointer;
     transition: box-shadow 0.3s;
-    align-items: center;
-    gap: 0.75rem;
-    overflow: hidden;
   `;
 
   const RightSection = styled.div`
     display: flex;
     gap: 0, 5rem;
     align-items: center;
-  `;
-
-  const LeftSection = styled.div`
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
   `;
 
   return (
@@ -69,15 +59,32 @@ const CustomCard: React.FC<CustomCardProps> = ({
       rel="noopener noreferrer"
       style={{ textDecoration: "none", color: "inherit" }}
     >
-      <CardContainer onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-        <div>{avatarSrc && <Avatar src={avatarSrc} />}</div>
+      <StyledCardInside
+        gap={8}
+        align="center"
+        justify="space-between"
+        onMouseOver={handleMouseOver}
+        onMouseOut={handleMouseOut}
+      >
+        <Flex align="center" gap={8}>
+          <div>{avatarSrc && <Avatar src={avatarSrc} />}</div>
 
-        <LeftSection>
-          {title && <p style={{ fontWeight: 700 }}>{title}</p>}
-          {bank && <p style={{ whiteSpace: "nowrap" }}>{bank}</p>}
-          {description && <p>{description}</p>}
-          {accountType && <p>{accountType}</p>}
-        </LeftSection>
+          <Flex vertical>
+            {title && <p style={{ fontWeight: 700 }}>{title}</p>}
+            {bank && (
+              <p
+                style={{
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                }}
+              >
+                {bank}
+              </p>
+            )}
+            {description && <p>{description}</p>}
+            {accountType && <p>{accountType}</p>}
+          </Flex>
+        </Flex>
 
         <RightSection>
           {totalMoney && (
@@ -85,6 +92,9 @@ const CustomCard: React.FC<CustomCardProps> = ({
               style={{
                 fontWeight: 700,
                 fontSize: 16,
+                textOverflow: "ellipsis",
+                overflow: "hidden",
+                whiteSpace: "nowrap",
               }}
             >
               {totalMoney}
@@ -101,7 +111,7 @@ const CustomCard: React.FC<CustomCardProps> = ({
           )}
           {showChevron && <RxChevronRight style={{ fontSize: 20 }} />}
         </RightSection>
-      </CardContainer>
+      </StyledCardInside>
     </a>
   );
 };
